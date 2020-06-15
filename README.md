@@ -6,7 +6,7 @@ Blockchain technology can be utilized to improvise gun control without changing 
 -> This code source has the following resources - The Fabric Network, The webapp source code. The chaincode directory in both the webapp and network directory (with the main firearms tracking Go code in fabcar directory) gives the smart code functionality.
 This code is an extension of the first network, with changes made to accomodate this usecase.
 
-This is a simple simulation webapp, that starts the network, and the webapp (Java Sdk) uses the underlying fabric network to access the blockchain and add/retrieve, gun related info among peers respectively)
+This is a simple simulation webapp, that starts the network, and the webapp (Java Sdk) uses the underlying fabric network to access the blockchain and add/retrieve, gun related info among peers respectively). This was part of a research project, and if you encounter any errors its mostly in the network or minor issues. You can make changes in accordance with the open source code of Fabric first-network available publicly to accomodate your use case, as is done in this project. (https://hyperledger-fabric.readthedocs.io/en/release-2.0/build_network.html)
 
 To get to know/learn about Hyperledger Fabric: https://hyperledger-fabric.readthedocs.io/en/release-1.4/
 
