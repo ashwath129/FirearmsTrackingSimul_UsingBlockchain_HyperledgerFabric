@@ -1,0 +1,98 @@
+html, body {
+	height: 100%;
+}
+
+#login {
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+	-ms-flex-align: center;
+	-ms-flex-pack: center;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.form-signin {
+	width: 100%;
+	max-width: 355px;
+	padding: 35px;
+	margin: 0 auto;
+	background-color: white;
+	border-radius: 12px;
+}
+
+.form-signin .form-control {
+	position: relative;
+	box-sizing: border-box;
+	height: auto;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+
+.error {
+	background-color: #EDB9B1;
+	background-image: url(../../images/error-16x16.gif);
+	background-position: 5px;
+	background-repeat: no-repeat;
+	border: 1px solid #BB8888;
+	color: #990000;
+	font-weight: bold;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	padding: 5px 5px 5px 28px;
+}
+
+.sidebar {
+	height: 100%;
+	width: 350px;
+	position: fixed;
+	border-right: 1px solid #ddd7d7;
+	padding: 10px;
+}
+
+.content-wrapper {
+	padding-top: 35px;
+	margin-left: 350px;
+	overflow-x: hidden;
+}
+
+.conversation{
+	margin-bottom: .75rem;
+}
+
+.conversation p {
+	display: inline;
+	vertical-align: top;
+}
+
+.notification-label {
+    color: #060;
+    font-size: 14px;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.conversation-label1 {
+    color: blue;
+    font-size: 14px;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.conversation-label2 {
+    color: red;
+    font-size: 14px;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.conversation-body {
+    color: black;
+    font-size: 14px;
+    font-family: Verdana, Arial, sans-serif;
+}
