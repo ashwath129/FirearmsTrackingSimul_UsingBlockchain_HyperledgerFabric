@@ -1,0 +1,49 @@
+{
+    "name": "first-network-firearmsManu",
+    "version": "1.0.0",
+    "client": {
+        "organization": "firearmsManu",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "firearmsManu": {
+            "mspid": "firearmsManuMSP",
+            "peers": [
+                "peer0.firearmsManu.state.com"
+            ],
+            "certificateAuthorities": [
+                "ca.firearmsManu.state.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.firearmsManu.state.com": {
+            "url": "grpcs://localhost:9051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICcDCCAhegAwIBAgIQR2gmCj/EsWX3CodBv6OJ5DAKBggqhkjOPQQDAjCBgjEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xHzAdBgNVBAoTFmZpcmVhcm1zTWFudS5zdGF0ZS5jb20xJTAjBgNV\nBAMTHHRsc2NhLmZpcmVhcm1zTWFudS5zdGF0ZS5jb20wHhcNMjAwNDE5MTcyNTAw\nWhcNMzAwNDE3MTcyNTAwWjCBgjELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlm\nb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xHzAdBgNVBAoTFmZpcmVhcm1z\nTWFudS5zdGF0ZS5jb20xJTAjBgNVBAMTHHRsc2NhLmZpcmVhcm1zTWFudS5zdGF0\nZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAT4ThCM4w53ZjkIT6bT0FmP\nKCWo8L5qWv0Sc3wAHXDpSuOYHALc78i2d7g9XxODugmkflEX27Mbbd7S5vKkgNII\no20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUF\nBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIEIOFCCnL42IqPkwCRI2I89T0Q\nGT7Z4P7ibnKqh0n36q2TMAoGCCqGSM49BAMCA0cAMEQCIHqbzbrgduwnjH7EZEG3\nfaw89CYyAgRlJcXOn7oBtuS0AiBxQ6GezvOYjfDAeyzGFM9/gBOkPTh1JfbRR4+j\nDA55+g==\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.firearmsManu.state.com",
+                "hostnameOverride": "peer0.firearmsManu.state.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.firearmsManu.state.com": {
+            "url": "https://localhost:9054",
+            "caName": "ca-firearmsManu",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICaTCCAg+gAwIBAgIQdO9Ndm4leqHsZbVo8W5c6DAKBggqhkjOPQQDAjB/MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEfMB0GA1UEChMWZmlyZWFybXNNYW51LnN0YXRlLmNvbTEiMCAGA1UE\nAxMZY2EuZmlyZWFybXNNYW51LnN0YXRlLmNvbTAeFw0yMDA0MTkxNzI1MDBaFw0z\nMDA0MTcxNzI1MDBaMH8xCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlh\nMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMR8wHQYDVQQKExZmaXJlYXJtc01hbnUu\nc3RhdGUuY29tMSIwIAYDVQQDExljYS5maXJlYXJtc01hbnUuc3RhdGUuY29tMFkw\nEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAECFU6/Fht508OCN3MXln8YQWFJkU3jCyy\nFglKC7Wt3pL5/3fCkVDu9u5puy1h2R8NdAXqBA5aTsVjo4qHXROJnaNtMGswDgYD\nVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNV\nHRMBAf8EBTADAQH/MCkGA1UdDgQiBCDF/8ygBYF882TRpaOrr14/96IXeasG8/Ld\nqmy2Cq1k8zAKBggqhkjOPQQDAgNIADBFAiEAqVQS9EWGvRsq34J87N7Kg6+/ZEdq\n1seMvWCzPyE2PR4CIAkAZL4PKXOKgj9Ltq2aXrQ/AXABeoDdA6/XF82jkT3Y\n-----END CERTIFICATE-----\n"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

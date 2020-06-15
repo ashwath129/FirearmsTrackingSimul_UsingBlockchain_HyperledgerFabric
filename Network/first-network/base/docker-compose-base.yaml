@@ -1,0 +1,154 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+
+  orderer.state.com:
+    container_name: orderer.state.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/state.com/orderers/orderer.state.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/state.com/orderers/orderer.state.com/tls/:/var/hyperledger/orderer/tls
+        - orderer.state.com:/var/hyperledger/production/orderer
+    ports:
+      - 7050:7050
+
+  peer0.retail.state.com:
+    container_name: peer0.retail.state.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.retail.state.com
+      - CORE_PEER_ADDRESS=peer0.retail.state.com:7051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.retail.state.com:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.retail.state.com:9051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.retail.state.com:7051
+      - CORE_PEER_LOCALMSPID=retailMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/retail.state.com/peers/peer0.retail.state.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/retail.state.com/peers/peer0.retail.state.com/tls:/etc/hyperledger/fabric/tls
+        - peer0.retail.state.com:/var/hyperledger/production
+    ports:
+      - 7051:7051
+
+  peer0.firearmsManu.state.com:
+    container_name: peer0.firearmsManu.state.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.firearmsManu.state.com
+      - CORE_PEER_ADDRESS=peer0.firearmsManu.state.com:9051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:9051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.firearmsManu.state.com:9052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:9052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.firearmsManu.state.com:9051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.firearmsManu.state.com:7051
+      - CORE_PEER_LOCALMSPID=firearmsManuMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/firearmsManu.state.com/peers/peer0.firearmsManu.state.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/firearmsManu.state.com/peers/peer0.firearmsManu.state.com/tls:/etc/hyperledger/fabric/tls
+        - peer0.firearmsManu.state.com:/var/hyperledger/production
+
+    ports:
+      - 9051:9051
+
+  peer0.police.state.com:
+    container_name: peer0.police.state.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.police.state.com
+      - CORE_PEER_ADDRESS=peer0.police.state.com:10051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:10051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.police.state.com:10052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:10052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.police.state.com:10051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.police.state.com:8051
+      - CORE_PEER_LOCALMSPID=policeMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/police.state.com/peers/peer0.police.state.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/police.state.com/peers/peer0.police.state.com/tls:/etc/hyperledger/fabric/tls
+        - peer0.police.state.com:/var/hyperledger/production
+    ports:
+      - 10051:10051
+
+  peer0.ncis.state.com:
+    container_name: peer0.ncis.state.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.ncis.state.com
+      - CORE_PEER_ADDRESS=peer0.ncis.state.com:8051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.ncis.state.com:8052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.ncis.state.com:8051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.ncis.state.com:10051
+      - CORE_PEER_LOCALMSPID=ncisMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/ncis.state.com/peers/peer0.ncis.state.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/ncis.state.com/peers/peer0.ncis.state.com/tls:/etc/hyperledger/fabric/tls
+        - peer0.ncis.state.com:/var/hyperledger/production
+    ports:
+      - 8051:8051
+
+  peer0.usgovt.state.com:
+    container_name: peer0.usgovt.state.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.usgovt.state.com
+      - CORE_PEER_ADDRESS=peer0.usgovt.state.com:12051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:12051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.usgovt.state.com:12052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:12052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.usgovt.state.com:12051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.usgovt.state.com:11051
+      - CORE_PEER_LOCALMSPID=usgovtMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/usgovt.state.com/peers/peer0.usgovt.state.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/usgovt.state.com/peers/peer0.usgovt.state.com/tls:/etc/hyperledger/fabric/tls
+        - peer0.usgovt.state.com:/var/hyperledger/production
+    ports:
+      - 12051:12051
+
+  peer0.medic.state.com:
+    container_name: peer0.medic.state.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.medic.state.com
+      - CORE_PEER_ADDRESS=peer0.medic.state.com:11051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:11051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.medic.state.com:11052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:11052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.medic.state.com:11051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.medic.state.com:12051
+      - CORE_PEER_LOCALMSPID=medicMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/medic.state.com/peers/peer0.medic.state.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/medic.state.com/peers/peer0.medic.state.com/tls:/etc/hyperledger/fabric/tls
+        - peer0.medic.state.com:/var/hyperledger/production
+    ports:
+      - 11051:11051

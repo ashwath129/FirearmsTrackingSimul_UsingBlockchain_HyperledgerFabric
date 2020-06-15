@@ -1,0 +1,65 @@
+---
+name: first-network-firearmsManu
+version: 1.0.0
+client:
+  organization: firearmsManu
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  OrgfirearmsManu:
+    mspid: firearmsManuMSP
+    peers:
+    - peer0.firearmsManu.state.com
+    certificateAuthorities:
+    - ca.firearmsManu.state.com
+peers:
+  peer0.firearmsManu.state.com:
+    url: grpcs://localhost:9051
+    tlsCACerts:
+      pem: |
+        -----BEGIN CERTIFICATE-----
+        MIICcDCCAhegAwIBAgIQR2gmCj/EsWX3CodBv6OJ5DAKBggqhkjOPQQDAjCBgjEL
+        MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
+        cmFuY2lzY28xHzAdBgNVBAoTFmZpcmVhcm1zTWFudS5zdGF0ZS5jb20xJTAjBgNV
+        BAMTHHRsc2NhLmZpcmVhcm1zTWFudS5zdGF0ZS5jb20wHhcNMjAwNDE5MTcyNTAw
+        WhcNMzAwNDE3MTcyNTAwWjCBgjELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlm
+        b3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xHzAdBgNVBAoTFmZpcmVhcm1z
+        TWFudS5zdGF0ZS5jb20xJTAjBgNVBAMTHHRsc2NhLmZpcmVhcm1zTWFudS5zdGF0
+        ZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAT4ThCM4w53ZjkIT6bT0FmP
+        KCWo8L5qWv0Sc3wAHXDpSuOYHALc78i2d7g9XxODugmkflEX27Mbbd7S5vKkgNII
+        o20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUF
+        BwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIEIOFCCnL42IqPkwCRI2I89T0Q
+        GT7Z4P7ibnKqh0n36q2TMAoGCCqGSM49BAMCA0cAMEQCIHqbzbrgduwnjH7EZEG3
+        faw89CYyAgRlJcXOn7oBtuS0AiBxQ6GezvOYjfDAeyzGFM9/gBOkPTh1JfbRR4+j
+        DA55+g==
+        -----END CERTIFICATE-----
+        
+    grpcOptions:
+      ssl-target-name-override: peer0.firearmsManu.state.com
+      hostnameOverride: peer0.firearmsManu.state.com
+certificateAuthorities:
+  ca.firearmsManu.state.com:
+    url: https://localhost:9054
+    caName: ca-firearmsManu
+    tlsCACerts:
+      pem: |
+        -----BEGIN CERTIFICATE-----
+        MIICaTCCAg+gAwIBAgIQdO9Ndm4leqHsZbVo8W5c6DAKBggqhkjOPQQDAjB/MQsw
+        CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+        YW5jaXNjbzEfMB0GA1UEChMWZmlyZWFybXNNYW51LnN0YXRlLmNvbTEiMCAGA1UE
+        AxMZY2EuZmlyZWFybXNNYW51LnN0YXRlLmNvbTAeFw0yMDA0MTkxNzI1MDBaFw0z
+        MDA0MTcxNzI1MDBaMH8xCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlh
+        MRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMR8wHQYDVQQKExZmaXJlYXJtc01hbnUu
+        c3RhdGUuY29tMSIwIAYDVQQDExljYS5maXJlYXJtc01hbnUuc3RhdGUuY29tMFkw
+        EwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAECFU6/Fht508OCN3MXln8YQWFJkU3jCyy
+        FglKC7Wt3pL5/3fCkVDu9u5puy1h2R8NdAXqBA5aTsVjo4qHXROJnaNtMGswDgYD
+        VR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNV
+        HRMBAf8EBTADAQH/MCkGA1UdDgQiBCDF/8ygBYF882TRpaOrr14/96IXeasG8/Ld
+        qmy2Cq1k8zAKBggqhkjOPQQDAgNIADBFAiEAqVQS9EWGvRsq34J87N7Kg6+/ZEdq
+        1seMvWCzPyE2PR4CIAkAZL4PKXOKgj9Ltq2aXrQ/AXABeoDdA6/XF82jkT3Y
+        -----END CERTIFICATE-----
+        
+    httpOptions:
+      verify: false

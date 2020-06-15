@@ -1,0 +1,64 @@
+---
+name: first-network-police
+version: 1.0.0
+client:
+  organization: police
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  Orgpolice:
+    mspid: policeMSP
+    peers:
+    - peer0.police.state.com
+    certificateAuthorities:
+    - ca.police.state.com
+peers:
+  peer0.police.state.com:
+    url: grpcs://localhost:10051
+    tlsCACerts:
+      pem: |
+        -----BEGIN CERTIFICATE-----
+        MIICVzCCAf6gAwIBAgIRAL0UKrz7lCkc/AAS6v8HeTwwCgYIKoZIzj0EAwIwdjEL
+        MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
+        cmFuY2lzY28xGTAXBgNVBAoTEHBvbGljZS5zdGF0ZS5jb20xHzAdBgNVBAMTFnRs
+        c2NhLnBvbGljZS5zdGF0ZS5jb20wHhcNMjAwNDE5MTcyNTAwWhcNMzAwNDE3MTcy
+        NTAwWjB2MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UE
+        BxMNU2FuIEZyYW5jaXNjbzEZMBcGA1UEChMQcG9saWNlLnN0YXRlLmNvbTEfMB0G
+        A1UEAxMWdGxzY2EucG9saWNlLnN0YXRlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49
+        AwEHA0IABOprUPzL/Ghhhiyb911JUV8qxSlBu/22IMbLU5pEKVhnnmb1ywyeR75C
+        sz42/7w4qpHkmOR7LP8O7gd5Xj+CR+yjbTBrMA4GA1UdDwEB/wQEAwIBpjAdBgNV
+        HSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zApBgNV
+        HQ4EIgQgYvm5vjM4axGZNWV72uBkxd271WxMcRKepi6505qCnDowCgYIKoZIzj0E
+        AwIDRwAwRAIgTuP840Yt/KDySdUs0H6Co8m1siszEqT4mi9HI1H1z58CIA0AjD8g
+        GAmCwU9CosCN0Hwx7j3Z/9DsTgdXtN9d4pKl
+        -----END CERTIFICATE-----
+        
+    grpcOptions:
+      ssl-target-name-override: peer0.police.state.com
+      hostnameOverride: peer0.police.state.com
+certificateAuthorities:
+  ca.police.state.com:
+    url: https://localhost:10054
+    caName: ca-police
+    tlsCACerts:
+      pem: |
+        -----BEGIN CERTIFICATE-----
+        MIICUTCCAfigAwIBAgIRAO6kQIP9z+N+vEVdF0ArSvUwCgYIKoZIzj0EAwIwczEL
+        MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
+        cmFuY2lzY28xGTAXBgNVBAoTEHBvbGljZS5zdGF0ZS5jb20xHDAaBgNVBAMTE2Nh
+        LnBvbGljZS5zdGF0ZS5jb20wHhcNMjAwNDE5MTcyNTAwWhcNMzAwNDE3MTcyNTAw
+        WjBzMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN
+        U2FuIEZyYW5jaXNjbzEZMBcGA1UEChMQcG9saWNlLnN0YXRlLmNvbTEcMBoGA1UE
+        AxMTY2EucG9saWNlLnN0YXRlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IA
+        BLaJaNAF0hJRIv7lEqCKTwNSZWuoCYGn4QZu9ft9yydYi1A5XCXasu922bK64f0Y
+        nAmSMveu977XVeUVH//hsN2jbTBrMA4GA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAU
+        BggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4EIgQg
+        f39ix1EDEcnm4qPx+jGhPEfkUMw+aNrlcAQnxFe9kvAwCgYIKoZIzj0EAwIDRwAw
+        RAIgdjNTIxm+pBtNE7/lhtJJT/fQQVkzWn7UqkFXpPhcozgCIB1S+tp9hDD/y9Ve
+        Qjj/2228mpOia3fVKVItUrWs1jwc
+        -----END CERTIFICATE-----
+        
+    httpOptions:
+      verify: false
