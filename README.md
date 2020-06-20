@@ -22,9 +22,9 @@ To get to know/learn about Hyperledger Fabric: https://hyperledger-fabric.readth
 
 - First you need to start the underlying Fabric blockchain network. This contains all the peers in the system for this respective use case (ncis,policedept,retailer,manufacturer etc.) To run you need to have the prerequisites mentioned previously (Node,Go,Docker etc.).
 
-- Once you have it all, go to cmd,gitbash and navigate to the Network/first-network directory and run the command "sh byfn.sh -m generate". This will generate the crypto certificates necessary for authentication to the network. They can be found in the crypto config directory. You use these certificate files in the Java SDK, to access the network. (if you encounter errors, make sure you down the network before restarting it again after making changes using "sh byfn.sh down")
+- Once you have it all, go to cmd,gitbash and navigate to the Network/first-network directory and run the command "sh byfn.sh -m generate". This will generate the crypto certificates necessary for authentication to the network. They can be found in the crypto config directory. You use these certificate files in the Java SDK, to access the network. 
 
-- Then run command "sh byfn.sh -m up". This will start the cli, peers and orderers and the network itself. If everything is successfull you should get an "ended" at the finsh.
+- Then run command "sh byfn.sh -m up". This will start the cli, peers and orderers and the network itself. If everything is successfull you should get an "ended" at the finsh. (if you encounter errors, make sure you down the network before restarting it again after making changes using "sh byfn.sh down")
 
 - Make sure you have JDK 1.8. Import the maven code (with the pom file) in an IDE (Eclipse)
 the sdksample.java (contains a main function), to run and simulate the network that is started. (you can run this as a Java File for testing and stuff)
